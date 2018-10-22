@@ -165,8 +165,7 @@ public class HoudiniEngineEditor : ModuleRules
             System.Console.WriteLine( string.Format( "Building on an unknown environment!" ) );
         }
 
-        string Err = string.Format("Houdini Engine : Please install Houdini or Houdini Engine {0}", HoudiniVersion);
-        System.Console.WriteLine(Err);
+        // System.Console.WriteLine(string.Format("Houdini Engine : Please install Houdini or Houdini Engine {0}", HoudiniVersion));
 
         return "";
     }
@@ -208,7 +207,7 @@ public class HoudiniEngineEditor : ModuleRules
 
             if (!Directory.Exists(HAPIIncludePath))
             {
-                System.Console.WriteLine(string.Format("Couldnt find the HAPI include folder!"));
+                // System.Console.WriteLine(string.Format("Couldn't find the HAPI include folder!"));
                 HAPIIncludePath = "";
             }
         }
@@ -218,7 +217,11 @@ public class HoudiniEngineEditor : ModuleRules
     
         // Get the plugin path
         string PluginPath = Path.Combine( ModuleDirectory, "../../" );
+/* CORVUS-BEGIN - Commented out the MakePathRelativeTo() call since it does not work in our build: plugins needs path relative to the Source folder, or absolute
+        System.Console.WriteLine(string.Format("ModuleDirectory {0}", ModuleDirectory));
+        System.Console.WriteLine(string.Format("PluginPath {0}", PluginPath));
         PluginPath = Utils.MakePathRelativeTo(PluginPath, Target.RelativeEnginePath);
+   CORVUS-END */
 
         PublicIncludePaths.AddRange(
             new string[] {
