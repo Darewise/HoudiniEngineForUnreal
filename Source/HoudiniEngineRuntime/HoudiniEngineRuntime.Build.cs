@@ -34,7 +34,9 @@
 
     Houdini Version: 17.0.483
     Houdini Engine Version: 3.2.36
-    Unreal Version: 4.20.3
+    Unreal Version: 4
+.20
+.3
 
 */
 
@@ -69,7 +71,7 @@ public class HoudiniEngineRuntime : ModuleRules
             if ( HPath != null )
             {
                 Log = string.Format("Houdini Engine : Looking for Houdini Engine {0} in {1}", HoudiniVersion, HPath );
-                System.Console.WriteLine( Log );
+                // System.Console.WriteLine( Log );
                 if ( Directory.Exists( HPath ) )
                     return HPath;
             }
@@ -79,7 +81,7 @@ public class HoudiniEngineRuntime : ModuleRules
             if ( DefaultHPath != HPath )
             {
                 Log = string.Format("Houdini Engine : Looking for Houdini Engine {0} in {1}", HoudiniVersion, DefaultHPath );
-                System.Console.WriteLine( Log );
+                // System.Console.WriteLine( Log );
                 if ( Directory.Exists( DefaultHPath ) )
                     return DefaultHPath;
             }
@@ -90,7 +92,7 @@ public class HoudiniEngineRuntime : ModuleRules
             if ( HPath != null )
             {
                 Log = string.Format("Houdini Engine : Looking for Houdini {0} in {1}", HoudiniVersion, HPath );
-                System.Console.WriteLine( Log );
+                // System.Console.WriteLine( Log );
                 if ( Directory.Exists( HPath ) )
                     return HPath;
             }
@@ -100,7 +102,7 @@ public class HoudiniEngineRuntime : ModuleRules
             if ( DefaultHPath != HPath )
             {
                 Log = string.Format("Houdini Engine : Looking for Houdini {0} in {1}", HoudiniVersion, DefaultHPath );
-                System.Console.WriteLine( Log );
+                // System.Console.WriteLine( Log );
                 if ( Directory.Exists( DefaultHPath ) )
                     return DefaultHPath;
             }
@@ -110,7 +112,7 @@ public class HoudiniEngineRuntime : ModuleRules
                 return HFSPath;
 
             Log = string.Format("Houdini Engine : Failed to find Houdini {0}, will attempt to build using the latest installed version", HoudiniVersion );
-            System.Console.WriteLine( Log );
+            // System.Console.WriteLine( Log );
 
             // We couldn't find the exact version the plug-in was built for, we can still try with the active version in the registry
             string ActiveHEngine = Microsoft.Win32.Registry.GetValue(RegistryPath, "ActiveEngineVersion", null) as string;
@@ -127,7 +129,7 @@ public class HoudiniEngineRuntime : ModuleRules
                     if ( HPath != null )
                     {
                         Log = string.Format("Houdini Engine : Looking for Houdini Engine {0} in {1}", ActiveHEngine, HPath );
-                        System.Console.WriteLine( Log ); 
+                        // System.Console.WriteLine( Log ); 
                         if ( Directory.Exists( HPath ) )
                             return HPath;
                     }
@@ -149,7 +151,7 @@ public class HoudiniEngineRuntime : ModuleRules
                     if ( HPath != null )
                     {
                         Log = string.Format("Houdini Engine : Looking for Houdini {0} in {1}", ActiveHoudini, HPath );
-                        System.Console.WriteLine( Log );
+                        // System.Console.WriteLine( Log );
                         
                         if ( Directory.Exists( HPath ) )
                             return HPath;
@@ -182,8 +184,8 @@ public class HoudiniEngineRuntime : ModuleRules
             System.Console.WriteLine(string.Format("Building on an unknown environment!"));
         }
 
-        string Err = string.Format("Houdini Engine : Please install Houdini or Houdini Engine {0}", HoudiniVersion);
-        System.Console.WriteLine(Err);
+        //string Err = string.Format("Houdini Engine : Please install Houdini or Houdini Engine {0}", HoudiniVersion);
+        //System.Console.WriteLine(Err);
 
         return "";
     }
@@ -227,7 +229,7 @@ public class HoudiniEngineRuntime : ModuleRules
 
             if (!Directory.Exists(HAPIIncludePath))
             {
-                System.Console.WriteLine(string.Format("Couldn't find the HAPI include folder!"));
+                // System.Console.WriteLine(string.Format("Couldn't find the HAPI include folder!"));
                 HAPIIncludePath = "";
             }
         }
