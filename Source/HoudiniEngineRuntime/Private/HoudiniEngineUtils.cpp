@@ -8004,6 +8004,10 @@ FHoudiniEngineUtils::LoadLibHAPI( FString & StoredLibHAPILocation )
                 return HAPILibraryHandle;
             }
         }
+		else
+		{
+			HOUDINI_LOG_MESSAGE( TEXT( "%s not found in %s" ), *LibHAPIName, *HFSPath );
+		}
     }
 
     // Otherwise, we will attempt to detect Houdini installation.
@@ -8113,6 +8117,10 @@ FHoudiniEngineUtils::LoadLibHAPI( FString & StoredLibHAPILocation )
             return HAPILibraryHandle;
         }
     }
+	else
+	{
+		HOUDINI_LOG_MESSAGE( TEXT( "%s not found in %s" ), *LibHAPIName, *HoudiniLocation );
+	}
 
     StoredLibHAPILocation = TEXT( "" );
     return HAPILibraryHandle;
