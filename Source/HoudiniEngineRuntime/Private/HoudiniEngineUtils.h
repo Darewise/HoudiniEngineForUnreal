@@ -655,8 +655,9 @@ struct HOUDINIENGINERUNTIME_API FHoudiniEngineUtils
         static FColor PickVertexColorFromTextureMip(
             const uint8 * MipBytes, FVector2D & UVCoord, int32 MipWidth, int32 MipHeight );
 
-    protected:
         static FString ComputeVersionString(bool ExtraDigit);
+
+	protected:
 #if WITH_EDITOR
 
         /** Reset streams used by the given RawMesh. **/
