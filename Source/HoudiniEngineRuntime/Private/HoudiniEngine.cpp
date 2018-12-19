@@ -167,7 +167,7 @@ FHoudiniEngine::StartupModule()
         {
             // Get platform specific name of libHAPI.
             FString LibHAPIName = FHoudiniEngineUtils::HoudiniGetLibHAPIName();
-            HOUDINI_LOG_MESSAGE( TEXT( "Failed locating or loading %s" ), *LibHAPIName );
+			HOUDINI_LOG_MESSAGE( TEXT( "Failed locating or loading %s %s" ), *LibHAPIName, *FHoudiniEngineUtils::ComputeVersionString(false));
         }
     }
 
